@@ -37,7 +37,7 @@ client.on('message', msg => {
 })
 
 const job = channel =>
-  schedule.scheduleJob('57 9 * * *', () => {
+  schedule.scheduleJob('1 10 * * *', () => {
     resetMembers()
 
     let current = new Date()
