@@ -38,10 +38,12 @@ client.on('message', msg => {
 })
 
 const job = channel =>
-  schedule.scheduleJob('15 17 * * *', () => {
+  schedule.scheduleJob('20 17 * * *', () => {
     resetMembers()
 
     let current = new Date()
+    current.setHours(current.getHours() - constants.TIME_DIFF) // time diff between heroky dyno and local time
+
     if (current.getDay() !== 0 && current.getTime() < projectEnd.getTime()) {
       // if today's not Sunday,
       channel.send(
