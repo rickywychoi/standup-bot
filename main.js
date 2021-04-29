@@ -13,7 +13,7 @@ let channel = undefined
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
-  console.log("Current time in heroku dyno: ", new Date())
+  console.log("Current time in heroku dyno: ", new Date().getDay())
   channel = client.channels.cache.get(process.env.BOT_RESIDING_CHANNEL_ID)
   job(channel)
 })
