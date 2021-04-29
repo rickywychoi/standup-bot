@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 let members = new Set()
-const projectEnd = new Date('May 23, 2021 00:00:00') // project end date - Sunday, May 23rd
+const projectEnd = new Date('May 23, 2021 23:59:59') // project end date - Sunday, May 23rd
 let channel = undefined
 
 client.on('ready', () => {
@@ -38,7 +38,7 @@ client.on('message', msg => {
 })
 
 const job = channel =>
-  schedule.scheduleJob('20 17 * * *', () => {
+  schedule.scheduleJob('57 16 * * *', () => { // heroku dyno is 7 hrs ahead of local time => repeats at 9:57AM everyday
     resetMembers()
 
     let current = new Date()
