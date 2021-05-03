@@ -47,7 +47,7 @@ const job = channel =>
     if (current.getDay() !== 0 && current.getTime() < projectEnd.getTime()) {
       // if today's not Sunday,
       channel.send(
-        `==================================================\n=== ${current} ===\nMORNING GUYS @everyone`
+        `==================================================\n=== ${current} ===\nM O R N I N G  G U Y S @everyone`
       )
     }
   })
