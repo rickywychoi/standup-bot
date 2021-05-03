@@ -38,14 +38,13 @@ client.on('message', msg => {
 })
 
 const job = channel =>
-  schedule.scheduleJob('57 16 * * *', () => { // heroku dyno is 7 hrs ahead of local time => repeats at 9:57AM everyday
+  schedule.scheduleJob('00 57 16 * * 1-6', () => { // heroku dyno is 7 hrs ahead of local time => repeats at 9:57AM everyday from Mon to Sat
     resetMembers()
 
     let current = new Date()
     current.setHours(current.getHours() - constants.TIME_DIFF) // time diff between heroky dyno and local time
 
-    if (current.getDay() !== 0 && current.getTime() < projectEnd.getTime()) {
-      // if today's not Sunday,
+    if (current.getTime() < projectEnd.getTime()) {
       channel.send(
         `==================================================\n=== ${current} ===\nM O R N I N G  G U Y S @everyone`
       )
